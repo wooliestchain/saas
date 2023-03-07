@@ -29,7 +29,7 @@ include_once ("header.php");
 // Connexion à la base de données MySQL
 $host = 'localhost';
 $user = 'root';
-$mdp = '';
+$mdp = 'emma';
 $dbname = 'saas';
 
 $conn = new mysqli($host, $user, $mdp, $dbname);

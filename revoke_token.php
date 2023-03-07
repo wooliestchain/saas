@@ -6,7 +6,7 @@ $id = $_GET['id'];
 $mail = $_GET['email'];
 $nom_serveur = "localhost";
 $utilisateur = "root";
-$mot_de_passe = "";
+$mot_de_passe = "emma";
 $nom_base_données = "saas";
 $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_données);
 $req ="UPDATE user SET token = NULL WHERE username = '$username';";

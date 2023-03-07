@@ -24,7 +24,7 @@ include_once ("header.php");
         // Paramètres de connexion à la base de données
         $servername = "localhost";
         $username = "root";
-        $password = "";
+        $password = "emma";
         $dbname = "saas";
 
         $user =$_SESSION['username'];

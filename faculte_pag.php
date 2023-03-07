@@ -12,7 +12,7 @@
 <section>
     <?php
     // Connexion à la base de données et requête pour récupérer les éléments
-    $pdo = new PDO('mysql:host=localhost;dbname=saas', 'root', '');
+    $pdo = new PDO('mysql:host=localhost;dbname=saas', 'root', 'emma');
     $requete = $pdo->query('SELECT * FROM faculte');
     $elements = $requete->fetchAll();
 

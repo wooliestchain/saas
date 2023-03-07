@@ -34,7 +34,7 @@
 
                 $nom_serveur = "localhost";
                 $utilisateur = "root";
-                $mot_de_passe = "";
+                $mot_de_passe = "emma";
                 $nom_base_données = "saas";
                 $dsn = "mysql:host=$nom_serveur;dbname=$nom_base_données;charset=utf8mb4";
 

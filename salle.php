@@ -31,7 +31,7 @@ include_once ("header.php");
             if(isset($_POST['sujet']) && isset($_POST['descr'])){
                 $host = "localhost";
                 $user = "root";
-                $mdp = "";
+                $mdp = "emma";
                 $dv = "saas";
 
                 $conn = mysqli_connect($host, $user, $mdp, $dv);

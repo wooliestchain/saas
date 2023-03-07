@@ -23,7 +23,7 @@ include_once ("header_manage.php");
 <section style="height: 400px; position: relative; background-color: #e1e1e1">
     <?php
     // Connexion à la base de données et requête pour récupérer les éléments
-    $pdo = new PDO('mysql:host=localhost;dbname=saas', 'root', '');
+    $pdo = new PDO('mysql:host=localhost;dbname=saas', 'root', 'emma');
     $requete = $pdo->query('SELECT * FROM user WHERE token is null or token=""');
     $elements = $requete->fetchAll();
 

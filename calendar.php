@@ -23,7 +23,7 @@ include_once ("header.php")
     <h1 style="text-align: center; color: #7e7b7b">Votre Programme</h1>
     <?php
     // Connexion à la base de données et requête pour récupérer les éléments
-    $pdo = new PDO('mysql:host=localhost;dbname=saas', 'root', '');
+    $pdo = new PDO('mysql:host=localhost;dbname=saas', 'root', 'emma');
     $requete = $pdo->query('SELECT * FROM add_table');
     $elements = $requete->fetchAll();
 
