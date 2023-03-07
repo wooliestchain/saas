@@ -15,6 +15,8 @@
         <input type="email" name="email" placeholder="Entrer votre adresse mail" autocomplete="off"><br>
         <label for="password">Entrer votre mot de passe: </label><br>
         <input type="password" name="password" minlength="5" placeholder="Entrer votre mot de passe" autocomplete="off" ><br>
+        <h2>Pas encore inscrit?<a style="text-decoration: none" href="admin_sign.php">Faites le ici</a></h2>
+
 
         <?php
         if(isset($_POST['valider'])) {
