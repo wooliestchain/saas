@@ -1,0 +1,11 @@
+-Formulaire de connexion côté admin, formulaire de souscription côté User (un token est automatiquement attribué dès l'inscription)
+
+-Retirer le token et donc l'accès à un utilisateur.
+
+-Gérer les accès aux différentes pages web.
+
+-Embelir avec du css.
+
+-Le calendrier et la gestion du profil de l'utilisateur.
+
+-La déconnexion.

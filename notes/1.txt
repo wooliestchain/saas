@@ -1,0 +1,24 @@
+<?php
+        if(isset($_POST['valider'])) {
+            if (isset($_POST['email']) && isset($_POST['password']) ) {
+
+                $email = $_POST['email'];
+                $pass = $_POST['password'];
+
+                $nom_serveur = "localhost";
+                $utilisateur = "root";
+                $mot_de_passe = "";
+                $nom_base_données = "saas";
+                $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_données);
+                $req ="INSERT INTO admin (admin_email, admin_mdp) VALUES ('$email', '$pass')";
+                $res = mysqli_query($con,$req);
+                if ($res) {
+                    header("location:admin_manage.php");
+                    $_SESSION['email'] = $email;
+                } else {//si non
+                    $erreur = "ECHEC!!!!!!";
+                }
+            }
+
+        }
+        ?>

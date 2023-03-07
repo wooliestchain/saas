@@ -1,0 +1,45 @@
+<main>
+    <section>
+        <div class="main_text">
+        <h1>Bonjour "Utilisateur", Vous pouvez mettre a jour votre emploi du temps ici.</h1>
+        </div>
+        <form action="#" method="post">
+            Ajouter une matière: <br> <input type="text" placeholder="Matiére" name="matiére"><br>
+            Ajouter une faculté: <br> <input type="text" placeholder="Faculté" name="faculty"><br>
+            Ajouter un cours: <br> <input type="text" placeholder="Cours" name="course"><br>
+            Ajouter une salle: <br> <input type="text" placeholder="Salle" name="salle"><br>
+            Ajouter un temps d'étude: <br> <input type="text"><br>
+            Valider: <br> <input type="submit" value="Valider">
+
+        </form>
+    </section>
+</main>
+
+
+
+
+
+
+$conn = new mysqli($host, $user, $mdp, $dbname);
+
+        // Vérifier la connexion
+        if ($conn->connect_error) {
+            die("La connexion a échoué : " . $conn->connect_error);
+        }
+
+        $matiere = $_POST["matiere"];
+        $faculte = $_POST["faculte"];
+        $cours = $_POST["cours"];
+        $salle = $_POST["salle"];
+        $h_debut = $_POST["h_debut"];
+        $h_fin = $_POST["h_fin"];
+
+        $addTim = "INSERT INTO add_table (faculte, cours, sujet, salle, heure_debt, heure_fin) VALUES ('$faculte', '$cours', '$matiere', '$salle', '$h_debut', '$h_fin')";
+        if ($conn->query($addTim) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $addTim . "<br>" . $conn->error;
+        }
+
+        // fermeture de la connexion à la base de données
+        $conn->close();

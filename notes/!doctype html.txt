@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<?php
+include_once ("header.php")
+?>
+<section>
+    <?php
+    // Nombre d'éléments à afficher par page
+    $elements_par_page = 2;
+
+    // Récupérer le numéro de la page courante
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+    // Calculer le premier élément à afficher
+    $premier_element = ($page - 1) * $elements_par_page;
+
+    // Récupérer les éléments de la base de données
+    $pdo = new PDO('mysql:host=localhost;dbname=saas', 'root', '');
+    $requete = $pdo->prepare('SELECT * FROM salle LIMIT :premier_element, :elements_par_page');
+    $requete->bindValue('premier_element', $premier_element, PDO::PARAM_INT);
+    $requete->bindValue('elements_par_page', $elements_par_page, PDO::PARAM_INT);
+    $requete->execute();
+    $elements = $requete->fetchAll();
+
+    // Afficher les éléments
+    foreach ($elements as $element) {
+        echo '<div>' . $element['salle_nom'] . ' ' . $element['salle_local'] . ' <input type="submit" value="supprimer"> <input type="submit" value="modifier"></div>';
+
+    }
+
+    // Afficher les liens vers les autres pages
+    $requete_count = $pdo->query('SELECT COUNT(*) AS total FROM salle');
+    $resultat_count = $requete_count->fetch();
+    $total_elements = $resultat_count['total'];
+    $nombre_pages = ceil($total_elements / $elements_par_page);
+
+    echo '<div class="page">';
+    for ($i = 1; $i <= $nombre_pages; $i++) {
+        if ($i == $page) {
+            echo '<span class="curent_pg">' . $i . '</span>';
+        } else {
+            echo '<a class="next_pg" href="?page=' . $i . '">' . $i . '</a>';
+        }
+    }
+    echo '</div>';
+    ?>
+
+</section>
+</body>
+</html>
